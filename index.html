@@ -1,122 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
-	<head> 
-		<meta charset="utf-8">
-		<meta name="description" content="présentation général et intéractive de tous mes photomontages de l'OC Chanard">
-		<meta name="keywords" content="" lang="fr">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="style.css?v=2">
-        <link rel="shortcut icon" type="image/x-icon" href="icone.ico">
-        <link rel="preload" as="image" href="images\img_autre\Chanard Refshit.png"/>
-        <title>Galerie de gardien</title>
-    </head>
-    <body>
-        <span>
-            <img id="imageid" class="fondcran fade-in" src="images/gif_fond/Aurores_boreales.gif" alt="fond_ecran">
-        </span>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Galerie de gardien</title>
+</head>
 
-        <nav>
-            <div>
-                <a href="#imgdessin"><button>Dessin</button></a>
-                <a href="#imgmontage"><button>Montage</button></a>
-                <a href="#fondecran"><button>boite</button></a>
-                <a href="#fondecran"><button>musique</button></a>
-            </div>
-            <div>
-                <img id="favMenu" src="images\arrangement\etoileMenu.png" alt="Menu Favori">
-                <button id="buttonchange">
-                    <img id="rotateButton" src="images\arrangement\fleche.png" alt="Changer d'Image" style="width: 50px; height: 50px;">
-                </button>
-            </div>
-        </nav>
+<body>
 
-        <header>
-            <img class="iconeG" src="images\arrangement\quality certified.png" alt="chanard quality certified">
-            <h1> Bienvenue à la Galerie de gardien </h1>
-            <img class="iconeD" src="images\arrangement\chanard mignon.png" alt="chanard mignon">
-        </header>
+  <h1>Premier essai – dessins</h1>
 
-        <div id="imgdessin"></div>
+  <img src="images/1.jpg" alt="Dessin 1" width="400">
+  <br><br>
+  <img src="images/2.png" alt="Dessin 2" width="400">
 
-        <h2 id="textFavNone"> Aucun favori !<img src="images\arrangement\kirby-spin-spin-spin-spin.gif" alt="kirby noFavori"></h2>
-
-        <main>
-            <div class="favNone">
-                <h2 class="titre">Dessin de base : </h2>
-            </div>
-            <img class="table smallThumb" loading="lazy" src="images\img_autre\Chanard Refshit.png">
-            <div id="dessin" class="grid4">
-
-            
-
-            <div id="imgmontage"></div>
-
-            <div class="favNone">
-                <hr>
-                <h2>Montage : </h2>
-            </div>
-            <div id="montage" class="grid4">
-
-            </div>
-
-
-            <div id="fondecran"></div>
-
-            <div class="favNone">
-                <hr>
-                <h2>Montage avec fond : </h2>
-            </div>
-            <div id="fond" class="grid2">
-
-            </div>
-
-            <hr class="favNone">
-            <img class="table smallThumb" loading="lazy" src="images\img_autre\Table d'Amiibo.png">
-
-        </main>
-        <footer>
-            <div class="sign">
-                <img class="iconeG" src="images\arrangement\arthurin gros cul.png">
-                <div>
-                    <h3>Dessinatrice :<br>@Lag</h3>
-                    <img class="pp" src="images\arrangement\pp louann.png">
-                </div>
-                <img class="foot" src="images\arrangement\louannMamere.png">
-                <div>
-                    <h3>Montage :<br>@Bubulle</h3>
-                    <img class="pp" src="images\arrangement\pp1.png">
-                </div>
-                <img class="iconeD" src="images\arrangement\triste chanard.png">
-            </div>
-            <div class="action">
-                <a id="videFav"><h6>Vider le cache - Favori</h6></a>
-            </div>
-        </footer>
-
-
-        <div id="imageModal" class="modal">
-            <img class="modal-content" id="modalImage">
-            <div class="elementButton">
-                <img id="retour" src="images\arrangement\retour-fleche.png">
-                <img id="fav" src="images\arrangement\etoile_blanc.png">
-                <img id="livret" src="images\arrangement\livret.png">
-            </div>
-            <div class="description">
-                <img id="head" src="images\arrangement\header_text.png">
-                <span id="title_desc"></span>
-                <p id="desc"></p>
-                <img id="foot" src="images\arrangement\footer_text.png">
-            </div>
-            <div class="fond_noir_desc"></div>
-        </div>
-
-        <div id="dossIcoFav">
-            
-        </div>
-
-        <div>
-            <script src="JS.js"></script>
-        </div>
-
-    </body>
+</body>
 </html>
