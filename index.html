@@ -8,6 +8,7 @@
 <body>
 
   <h1>Bienvenue à ma Galerie</h1>
+  <h1>gardien / KLL</h1>
   <p>Art visuel, sculpture, écriture et musique</p>
 
   <nav>
@@ -21,18 +22,42 @@
 
   <hr>
 
-  <!-- DESSINS -->
-  <section id="dessins">
-    <h2>Dessins</h2>
-    <div class="grid2">
-      <img src="images/dessins/1.jpg">
-      <img src="images/dessins/2.png">
-      <img src="images/dessins/1.jpg">
-      <img src="images/dessins/2.png">
-      <img src="images/dessins/1.jpg">
-      <img src="images/dessins/2.png">
+ <!-- DESSINS -->
+<section id="dessins">
+  <h2>Dessins</h2>
+
+  <div class="grid2">
+    <div class="art-item" onclick="openModal('images/dessins/1.png', 'titre p', 'd p')">
+      <h3>titre p</h3>
+      <img src="images/dessins/1.png" alt="Dessin 1">
     </div>
-  </section>
+
+    <div class="art-item" onclick="openModal('images/dessins/2.png', 'titre p', 'd p')">
+      <h3>titre p</h3>
+      <img src="images/dessins/2.png" alt="Dessin 2">
+    </div>
+
+    <div class="art-item" onclick="openModal('images/dessins/3.png', 'titre p', 'd p')">
+      <h3>titre p</h3>
+      <img src="images/dessins/3.png" alt="Dessin 3">
+    </div>
+
+    <div class="art-item" onclick="openModal('images/dessins/1.png', 'titre p', 'd p')">
+      <h3>titre p</h3>
+      <img src="images/dessins/1.png" alt="Dessin 4">
+    </div>
+
+    <div class="art-item" onclick="openModal('images/dessins/2.png', 'titre p', 'd p')">
+      <h3>titre p</h3>
+      <img src="images/dessins/2.png" alt="Dessin 5">
+    </div>
+
+    <div class="art-item" onclick="openModal('images/dessins/3.png', 'titre p', 'd p')">
+      <h3>titre p</h3>
+      <img src="images/dessins/3.png" alt="Dessin 6">
+    </div>
+  </div>
+</section>
 
   <!-- SCULPTURES BOIS -->
   <section id="bois">
@@ -180,7 +205,64 @@
             <p style="text-align: center; font-weight: bold; margin-top: 30px;">À suivre...</p>
         </div>
     </section>
-</main>
+  
 
+
+<section class="external-links">
+  <a
+    href="https://www.canva.com/design/DAG6F6q5JGI/vMH3UhNknvkGuVDGsR6Sow/view?utm_content=DAG6F6q5JGI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h33ec56ac19"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-canva"
+  >
+    📖 Le livre sur Canva
+  </a>
+
+  <a
+    href="https://www.instagram.com/gardien_fou?igsh=MWkzZHBnZmxiOGxoZg=="
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-instagram"
+  >
+    📸 Instagram · @gardien_fou
+  </a>
+</section>
+
+
+
+
+
+
+<!-- LICENCE / DROITS D'AUTEUR -->
+<footer class="license">
+  <p>
+    © 2026 — Tous droits réservés.<br><br>
+
+    L’ensemble des contenus présents sur ce site (dessins, sculptures, textes, poésies, musiques et vidéos)
+    est protégé par le droit d’auteur.<br><br>
+
+    Toute reproduction, diffusion, modification ou utilisation, totale ou partielle,
+    sans l’autorisation écrite préalable de l’auteur est strictement interdite.
+       
+       
+        
+  </p>
+
+</footer>
+
+  
+</main>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <img id="modal-img">
+    <div class="modal-text">
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+    </div>
+    <span class="close" onclick="closeModal()">&times;</span>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
