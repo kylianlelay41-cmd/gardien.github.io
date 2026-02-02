@@ -21,43 +21,72 @@
   </nav>
 
   <hr>
-
- <!-- DESSINS -->
+<!-- DESSINS -->
 <section id="dessins">
   <h2>Dessins</h2>
 
   <div class="grid2">
-    <div class="art-item" onclick="openModal('images/dessins/1.png', 'titre p', 'd p')">
-      <h3>titre p</h3>
-      <img src="images/dessins/1.png" alt="Dessin 1">
-    </div>
 
-    <div class="art-item" onclick="openModal('images/dessins/2.png', 'titre p', 'd p')">
+    <div class="art-item"
+  onclick="openModal(
+    'images/dessins/1.png',
+    'L’arbre monde de « Charon et R.M.S »',
+    `Ce dessin numérique est la toute première œuvre que j’ai réalisée sur l’application Sketchbook.
+Il illustre la scène d’ouverture du livre « Charon et les rêves aux mille et un souvenirs », dans laquelle
+le personnage se réveille au pied d’un pommier géant.
+
+Dans le récit, cet arbre est décrit comme un roi éternel, un élément central autour duquel s’articule
+le plus grand retournement de situation de l’histoire.
+
+Son feuillage abrite des pommes au goût infiniment exquis, que le personnage principal ne peut qu’observer
+de loin, sans jamais pouvoir les atteindre.
+
+Bien que le dessin puisse laisser penser que l’arbre se dresse sur une colline, la réalité est tout autre :
+il s’agit d’un rêve. Dans cet univers, les rêves prennent la forme de petites planètes flottantes,
+suspendues hors du monde réel. Ainsi, le pommier a poussé sans jamais s’arrêter sur cette planète,
+jusqu’à finir par la recouvrir de son ombre.`
+  )">
+  <h3>L’arbre monde de « Charon et R.M.S »</h3>
+  <img src="images/dessins/1.png" alt="L’arbre monde">
+</div>
+
+
+    <div class="art-item"
+      onclick="openModal(
+        'images/dessins/2.png',
+        'titre p',
+        'd p'
+      )">
       <h3>titre p</h3>
       <img src="images/dessins/2.png" alt="Dessin 2">
     </div>
 
-    <div class="art-item" onclick="openModal('images/dessins/3.png', 'titre p', 'd p')">
+    <div class="art-item"
+      onclick="openModal(
+        'images/dessins/3.png',
+        'titre p',
+        'd p'
+      )">
       <h3>titre p</h3>
       <img src="images/dessins/3.png" alt="Dessin 3">
     </div>
 
-    <div class="art-item" onclick="openModal('images/dessins/1.png', 'titre p', 'd p')">
-      <h3>titre p</h3>
-      <img src="images/dessins/1.png" alt="Dessin 4">
-    </div>
-
-    <div class="art-item" onclick="openModal('images/dessins/2.png', 'titre p', 'd p')">
-      <h3>titre p</h3>
-      <img src="images/dessins/2.png" alt="Dessin 5">
-    </div>
-
-    <div class="art-item" onclick="openModal('images/dessins/3.png', 'titre p', 'd p')">
-      <h3>titre p</h3>
-      <img src="images/dessins/3.png" alt="Dessin 6">
-    </div>
   </div>
 </section>
+
+<!-- MODALE -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <img id="modal-img">
+    <div class="modal-text">
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+      <button onclick="closeModal()">Fermer</button>
+    </div>
+  </div>
+</div>
+
+
 
   <!-- SCULPTURES BOIS -->
   <section id="bois">
@@ -249,6 +278,19 @@
   </p>
 
 </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </main>
