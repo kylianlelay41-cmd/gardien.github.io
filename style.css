@@ -12,7 +12,7 @@ h1, h2 {
 }
 
 /* ===== Menu ===== */
-.main-nav {
+nav {
   display: flex;
   flex-wrap: wrap;              /* autorise le retour à la ligne */
   justify-content: center;
@@ -20,7 +20,7 @@ h1, h2 {
   margin: 30px 0;
 }
 
-.main-nav a {
+nav a {
   flex: 0 0 calc(25% - 12px);   /* 4 boutons par ligne */
   text-align: center;
   padding: 12px 10px;
@@ -32,15 +32,9 @@ h1, h2 {
   font-size: 14px;
 }
 
-.main-nav a:hover {
+nav a:hover {
   background: #eaeaea;
 }
-
-
-
-
-
-
 
 
 
@@ -53,6 +47,12 @@ nav a {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
+
+
+
+
+
 
 nav a:hover {
   background: #e0e0e0;
