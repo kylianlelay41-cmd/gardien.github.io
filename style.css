@@ -2,7 +2,7 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background: #f4f4f4;
+  background: #01837a;
   margin: 0;
   padding: 20px;
 }
@@ -21,10 +21,10 @@ nav {
 }
 
 nav a {
-  flex: 0 0 calc(25% - 12px);   /* 4 boutons par ligne */
+  flex: 0 0 calc(17% - 12px);   /* 4 boutons par ligne */
   text-align: center;
   padding: 12px 10px;
-  background: #fff;
+  background: #00af69;
   text-decoration: none;
   color: #000;
   border-radius: 8px;
@@ -33,30 +33,11 @@ nav a {
 }
 
 nav a:hover {
-  background: #eaeaea;
+  background: #08a775;
 }
 
 
 
-nav a {
-  margin: 5px 10px;
-  padding: 10px 15px;
-  background: #fff;
-  text-decoration: none;
-  color: black;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-
-
-
-
-
-
-nav a:hover {
-  background: #e0e0e0;
-}
 
 /* ===== Grilles pour images ===== */
 .grid2 {
