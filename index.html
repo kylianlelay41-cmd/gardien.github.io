@@ -10,6 +10,10 @@
   <h1>Bienvenue à ma Galerie</h1>
   <h1>gardien / KLL</h1>
   <p>Art visuel, sculpture, écriture et musique</p>
+  
+
+
+
 
   <nav>
     <a href="#dessins">🎨 Dessins numériques</a>
@@ -23,11 +27,13 @@
   </nav>
 
   <hr>
+  
 
 <!-- DESSINS -->
 <section id="dessins">
+  
   <h2>Dessins numériques</h2>
-
+  
   <div class="grid2">
 
     <div class="art-item"
@@ -36,7 +42,7 @@
     'images/dessins/1.png',
     'L’arbre monde de « Charon et R.M.S »',
     `Ce dessin numérique est la toute première œuvre que j’ai réalisée sur l’application Sketchbook.
-    Il illustre la scène d’ouverture du livre « Charon et les rêves aux mille et un souvenirs », dans laquelle
+     Il illustre la scène d’ouverture du livre « Charon et les rêves aux mille et un souvenirs », dans laquelle
     le personnage se réveille au pied d’un pommier géant.
 
     Dans le récit, cet arbre est décrit comme un roi éternel, un élément central autour duquel s’articule
@@ -49,6 +55,7 @@
     il s’agit d’un rêve. Dans cet univers, les rêves prennent la forme de petites planètes flottantes,
     suspendues hors du monde réel. Ainsi, le pommier a poussé sans jamais s’arrêter sur cette planète,
     jusqu’à finir par la recouvrir de son ombre.`
+    
   )">
   <h3>L’arbre monde de « Charon et R.M.S »</h3>
   <img src="images/dessins/1.png" alt="L’arbre monde">
@@ -118,10 +125,11 @@
     <div class="art-item"
       onclick="openModal(
         'images/dessins/8.png',
-        'titre p',
-        'd p'
+        'happy ghast',
+        'Si quelqu’un dit qu’il est moche, je vous jure, je fais un massacre.',
+        'images/gif/1.gif'
       )">
-      <h3>titre p</h3>
+      <h3>happy ghast</h3>
       <img src="images/dessins/8.png" alt="Dessin 8">
     </div>
 
@@ -134,21 +142,84 @@
   </div>
 </section>
 
+
+  
+
+
+
+
+
+
+ <hr>
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- DESSINS PAPIER -->
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section id="dessins papier">
   <h2>DESSINS PAPIER</h2>
+  <div class="grid2">
 
-  <div class="art-item"
+      <div class="art-item"
+        onclick="openModal(
+          'images/dessinsr/2024_07_20 22_15 Office Lens.jpg',
+          'Le demon de l’égocentrisme',
+          'd p'
+        )">
+        <h3>le demon de l'égocentrisme</h3>
+        <img src="images/dessinsr/2024_07_20 22_15 Office Lens.jpg" alt="Dessin 2">
+      </div>
+
+    <div class="art-item"
       onclick="openModal(
-        'images/dessinsr/2024_07_20 22_15 Office Lens.jpg',
-        'le demon de l’égocentrisme',
-        'd p'
+        'images/dessinsr/2.webp',
+        'La comlexité du coeur',
+        'L’amour c’est à la fois si simple et si compliqué. Un jour, peut-être, je comprendrai.'
       )">
-      <h3>le demon de l'égocentrisme</h3>
-      <img src="images/dessinsr/2024_07_20 22_15 Office Lens.jpg" alt="Dessin 2">
+      <h3>La comlexité du coeur</h3>
+      <img src="images/dessinsr/2.webp" alt="Dessin 2">
     </div>
 
+    <div class="art-item"
+      onclick="openModal(
+        'images/dessinsr/3.jpg',
+        'le monde est si...',
+        'petit ou peut étre c’est moi qui devient trop grand.'
+      )">
+      <h3>le monde est si...</h3>
+      <img src="images/dessinsr/3.jpg" alt="Dessin 2">
+    </div>
 
+    
 
   </div>
 </section>
@@ -188,17 +259,7 @@
 
 
 
-<!-- MODALE -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <img id="modal-img">
-    <div class="modal-text">
-      <h2 id="modal-title"></h2>
-      <p id="modal-desc"></p>
-      <button onclick="closeModal()">Fermer</button>
-    </div>
-  </div>
-</div>
+
 
 
 
@@ -420,11 +481,6 @@
 
 
 
-
-
-
-
-
   
 </main>
 <div id="modal" class="modal">
@@ -433,6 +489,8 @@
     <div class="modal-text">
       <h2 id="modal-title"></h2>
       <p id="modal-desc"></p>
+      <img id="modal-gif" style="display:none; max-width:200px; margin-top:15px;">
+
     </div>
     <span class="close" onclick="closeModal()">&times;</span>
   </div>
@@ -441,4 +499,9 @@
 <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
 
