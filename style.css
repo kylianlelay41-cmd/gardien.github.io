@@ -112,7 +112,7 @@ h1, h2 {
 
 
     .welcome-container {
-  height: 100vh;        /* pile la hauteur écran */
+  height: 1080px;        /* pile la hauteur écran */
   width: 100vw;         /* toute la largeur */
   margin: 0;
   padding: 0;
