@@ -11,6 +11,78 @@ h1, h2 {
   margin: 20px 0;
 }
 
+/* ===== ACCUEIL (Hero section) ===== */
+.hero {
+  margin: 60px auto 40px;
+  padding: 50px 30px;
+  max-width: 900px;
+  background: linear-gradient(135deg, #00af69, #01837a);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  color: #ffffff;
+  animation: fadeInHero 1.2s ease forwards;
+}
+
+.hero-title {
+  font-size: 3em;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.hero-subtitle {
+  font-size: 1.6em;
+  margin: 12px 0;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+.hero-text {
+  margin-top: 20px;
+  font-size: 1.1em;
+  opacity: 0.85;
+}
+/* ===== NAVIGATION DANS LE HEADER ===== */
+.hero nav {
+  margin-top: 35px;
+  display: flex;
+  flex-wrap: wrap;              /* autorise 2 lignes */
+  justify-content: center;
+  gap: 14px;
+}
+
+.hero nav a {
+  flex: 0 0 calc(25% - 14px);   /* 4 boutons par ligne */
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  padding: 12px 10px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hero nav a:hover {
+  background: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* ===== Animation ===== */
+@keyframes fadeInHero {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
 /* ===== Menu ===== */
 nav {
   display: flex;
