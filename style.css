@@ -770,3 +770,52 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== POÉSIES ===== */
+
+.poesies-grid {
+  column-count: 2;
+  column-gap: 30px;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.poesie-card {
+  break-inside: avoid;
+  margin-bottom: 30px;
+  padding: 22px 26px;
+
+  border-radius: 18px;
+  background: #eafaf5; /* sera écrasé par le JS */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+
+  text-align: left;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.poesie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.28);
+}
+
+.poesie-card h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 1.4em;
+  color: #000;
+}
+
+.poesie-card p {
+  font-size: 1.05em;
+  line-height: 1.7em;
+  color: #000;
+  white-space: pre-line;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .poesies-grid {
+    column-count: 1;
+  }
+}
