@@ -79,7 +79,7 @@
 
 
 
-
+   <hr class="wave-hr">
 
 
 
@@ -90,25 +90,27 @@
 
   <header class="hero">
     <h1 class="hero-title">gardien / KLL</h1>
-    <h2 class="hero-subtitle">Bienvenue dans ma galerie</h2>
-    <p class="hero-text">
-      Art visuel · sculpture · écriture · musique
-    </p>
+    
+    
   
-
-
-
-
     <nav>
       <a href="#dessins">🎨 Dessins numériques</a>
       <a href="#dessins papier">✍️ Dessins papier</a>
       <a href="#travauxmanuel">🛠️ Travaux manuel</a>
-      <a href="#montage">🖼️ Montage</a>
+      <a href="#montage">🖼️ Montages photo</a>
       <a href="#photographies">📷 Photographies</a>
       <a href="#poesies">✒️ Poésies</a>
-      <a href="#musique">🎵 Musique</a>
+      <a href="#musique">🎵 Musiques</a>
       <a href="#livre">📖 Livre</a>
     </nav>
+
+  <p class="hero-text">
+      cliquez sur mes créations pour plus de détails !!!
+    </p>
+
+
+
+    
   </header>
 
   <hr class="custom-hr">
@@ -451,9 +453,9 @@
 
 
 
- <!-- Montage et photographies -->
+ <!-- Montage s -->
   <section id="montage">
-    <h2>Montage et photographies</h2>
+    <h2 class="bubble-title">Montages photo</h2>
     <div class="grid2">
       <div class="art-item"
           onclick="openModal(
@@ -476,22 +478,7 @@
       </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 
@@ -508,12 +495,69 @@
   </section>
 
 
+
+
+
+
+ <!-- photographies -->
+  <section id="montage">
+    <h2 class="bubble-title">photographies</h2>
+    <div class="grid2">
+      <div class="art-item"
+          onclick="openModal(
+            'images/montagephoto/d4fd7aee-e953-4bdb-bb71-a672a6cb26d5_20251206_235456_0000.png',
+            'Le sauvageon oublié qui patiente',
+            'on voit pas grand chose à travers le masque, en plus il y a pas la place pour y mettre mes lunettes. donc je deviens aveugle mais sa en vaut le coup ! '
+          )">
+          <h3>Le sauvageon oublié qui patiente</h3>
+          <img src="images/montagephoto/d4fd7aee-e953-4bdb-bb71-a672a6cb26d5_20251206_235456_0000.png" alt="Dessin 2">
+      </div>
+
+      <div class="art-item"
+          onclick="openModal(
+            'images/montagephoto/IMG_20250827_084045_244.webp',
+            'Le sauvageon oublié qui patiente',
+            ''
+          )">
+          <h3>Le sauvageon oublié qui patiente</h3>
+          <img src="images/montagephoto/IMG_20250827_084045_244.webp" alt="Dessin 2">
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  <hr class="custom-hr">
 
 
   <!-- POÉSIES -->
   <section id="poesies">
-    <h2>Poésies</h2>
+    <h2 class="bubble-title">Poésies</h2>
+    
     <div class="grid2">
       <img src="images/poesies/1.jpg">
       <img src="images/poesies/2.png">
@@ -524,19 +568,23 @@
     </div>
   </section>
  <hr class="custom-hr">
+
   <!-- MUSIQUE -->
   <section id="musique">
-    <h2>Musique</h2>
-      <video controls width="600">
-      <source src="videos/VN20260122_014022.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo.
-    </video>
+    <h2 class="bubble-title">Musiques</h2>
+    <div class="grid2"></div>
+      <video controls width="400">
+        <source src="videos/VN20260122_014022.mp4" type="video/mp4">
+
+        Votre navigateur ne supporte pas la vidéo.
+      </video>
+    </div>
   </section>
 
  <hr class="custom-hr">
   <!-- LIVRE -->
  <section id="livre">
-        <h2>Livre</h2>
+       <h2 class="bubble-title">Livre</h2>
 
         <div class="book-section">
             <h3>Charon et les rêves aux mille et un souvenirs</h3>
