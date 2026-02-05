@@ -17,3 +17,4 @@ function openModal(image, title, desc, gif) {
 function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
+

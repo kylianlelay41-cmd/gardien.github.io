@@ -682,3 +682,91 @@ nav a:hover {
   margin-left: auto;
   margin-right: auto;
 }
+
+body {
+  position: relative; /* très important */
+}
+
+.instagram-top {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  z-index: 10;
+}
+
+/* ===== MUSIQUE ===== */
+
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+.music-card {
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    #00af69,
+    #2bcda2,
+    #009999
+  );
+  background-size: 300% 300%;
+  animation: waveColor 6s ease infinite;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  color: white;
+  text-align: center;
+}
+
+.music-card img {
+  width: 100%;
+  max-width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.music-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.4em;
+}
+
+.music-type {
+  font-size: 0.95em;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.music-card audio {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.music-download {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.music-download:hover {
+  background: rgba(0,0,0,0.5);
+  transform: translateY(-2px);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .music-grid {
+    grid-template-columns: 1fr;
+  }
+}
