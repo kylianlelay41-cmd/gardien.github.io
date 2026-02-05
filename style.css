@@ -2,10 +2,73 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background: #01837a;
   margin: 0;
-  
+
+  /* Dégradé animé diagonal */
+  background: linear-gradient(
+    135deg,
+    #0000af,
+    #1a9b9d,
+    #0b9f5a,
+    #178015,
+    #027600,
+    #147601
+  );
+  background-size: 400% 400%;
+  animation: bodyGradient 12s ease infinite;
+
+  position: relative;
+  overflow-x: hidden;
 }
+@keyframes bodyGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.background-sparkles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  opacity: 0;
+  animation: bgSparkle 6s infinite ease-in-out;
+}
+
+/* Positions aléatoires */
+.bg-sparkle:nth-child(1) { left: 10%; top: 80%; animation-delay: 0s; }
+.bg-sparkle:nth-child(2) { left: 30%; top: 60%; animation-delay: 1s; }
+.bg-sparkle:nth-child(3) { left: 50%; top: 90%; animation-delay: 2s; }
+.bg-sparkle:nth-child(4) { left: 70%; top: 70%; animation-delay: 3s; }
+.bg-sparkle:nth-child(5) { left: 85%; top: 85%; animation-delay: 4s; }
+.bg-sparkle:nth-child(6) { left: 20%; top: 95%; animation-delay: 5s; }
+
+@keyframes bgSparkle {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(-200px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-240px) scale(0);
+  }
+}
+
 
 h1, h2 {
   margin: 20px 0;
@@ -92,6 +155,13 @@ h1, h2 {
     inset 0 0 10px rgba(255,255,255,0.3);
 
   text-align: center;
+
+}
+
+
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 
