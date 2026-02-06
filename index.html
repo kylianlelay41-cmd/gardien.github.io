@@ -926,6 +926,21 @@ Car je suis derrière toi.
 
 
 
+<script>
+let timer;
+
+function resetTimer() {
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    alert("👀 Hé… t’es encore là ?");
+  }, 120000);
+}
+
+document.addEventListener("mousemove", resetTimer);
+document.addEventListener("keydown", resetTimer);
+
+resetTimer();
+</script>
 
 
 
