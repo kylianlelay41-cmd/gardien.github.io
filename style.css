@@ -819,3 +819,24 @@ body {
     column-count: 1;
   }
 }
+
+/* ===== Animation "cliquez sur mes créations" ===== */
+.pulse-text {
+  display: inline-block;
+  animation: pulseText 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+}
