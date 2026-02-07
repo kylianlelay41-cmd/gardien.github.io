@@ -4,6 +4,11 @@ body {
   text-align: center;
   margin: 0;
 
+  h2, h3 {
+  color: white;
+}
+
+
   /* Dégradé animé diagonal */
   background: linear-gradient(
     135deg,
