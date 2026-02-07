@@ -850,8 +850,8 @@ body {
 /* CONTENEUR */
 #ghost-container {
   position: absolute;
-  width: 100px;
-  height: 110px;
+  width: 70px;
+  height: 80px;
   pointer-events: auto;
   z-index: 50; /* derrière la modale (999), devant le fond */
 }
@@ -859,10 +859,12 @@ body {
 /* FANTÔME */
 #ghost {
   position: absolute;
-  width: 100px;
+  width: 70px;
   left: 0;
   top: 0;
-  animation: ghostFloat 4s ease-in-out infinite;
+  animation: 
+  ghostFloat 4s ease-in-out infinite,
+  ghostWave 3s ease-in-out infinite;
 }
 
 /* FLOTTEMENT (SEULEMENT LE FANTÔME) */
@@ -872,6 +874,12 @@ body {
   100% { transform: translateY(-20px); }
 }
 
+/* effet vague gauche/droite */
+@keyframes ghostWave {
+  0%   { rotate: -3deg; }
+  50%  { rotate: 3deg; }
+  100% { rotate: -3deg; }
+}
 /* OMBRE */
 #ghost-shadow {
   position: absolute;
@@ -884,3 +892,21 @@ body {
   border-radius: 50%;
   transform: translateX(-50%);
 }
+
+#ghost-wrapper {
+  position: absolute;
+  width: 100px;
+  height: 110px;
+  transform-origin: center;
+}
+
+/* regarde à gauche (image originale) */
+#ghost-wrapper.face-left {
+  transform: scaleX(1) translateX(0px);
+}
+
+/* regarde à droite (image retournée) */
+#ghost-wrapper.face-right {
+  transform: scaleX(-1) translateX(30px);
+}
+

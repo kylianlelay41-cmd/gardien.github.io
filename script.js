@@ -41,7 +41,8 @@ document.querySelectorAll(".poesie-card").forEach(card => {
    RÉFÉRENCES
 ========================= */
 const ghostContainer = document.getElementById("ghost-container");
-const ghost = document.getElementById("ghost");
+const ghostWrapper   = document.getElementById("ghost-wrapper");
+const ghost          = document.getElementById("ghost");
 
 /* =========================
    ANIMATION DES IMAGES
@@ -63,18 +64,19 @@ setInterval(() => {
 ========================= */
 let x = 300;
 let y = 600;
+let lastX = x;
 
 /* =========================
    CONSTANTES DE MOUVEMENT
 ========================= */
-const SPEED = 0.6;           // vitesse constante (px/frame)
+const SPEED = 0.6;
 const STOP_DISTANCE = 75;
-const WAIT_TIME = 15000;     // 15 s
+const WAIT_TIME = 15000;
 
 /* =========================
    ÉTAT
 ========================= */
-let state = "moving";        // moving | waiting
+let state = "moving";
 let waitStart = 0;
 
 /* =========================
@@ -93,7 +95,7 @@ function generatePathPoints(startX, startY, endX, endY) {
   const distance = Math.hypot(dx, dy);
 
   if (distance > 1000) {
-    const count = Math.floor(Math.random() * 3) + 1; // 1 à 3 points
+    const count = Math.floor(Math.random() * 3) + 1;
 
     for (let i = 1; i <= count; i++) {
       const ratio = i / (count + 1);
@@ -106,8 +108,7 @@ function generatePathPoints(startX, startY, endX, endY) {
 
   points.push({ x: endX, y: endY });
 
-  /* PATCH BUG #2 :
-     supprimer les points trop proches */
+  /* PATCH : suppression points trop proches */
   points = points.filter((p, i, arr) => {
     if (i === 0) return true;
     const prev = arr[i - 1];
@@ -135,7 +136,21 @@ function chooseTarget() {
 }
 
 /* =========================
-   MOUVEMENT EN VAGUE LENTE
+   ORIENTATION (BASÉE SUR LE DÉPLACEMENT RÉEL)
+========================= */
+function updateGhostDirection() {
+  if (x > lastX + 0.3) {
+    ghostWrapper.classList.add("face-right");
+    ghostWrapper.classList.remove("face-left");
+  } else if (x < lastX - 0.3) {
+    ghostWrapper.classList.add("face-left");
+    ghostWrapper.classList.remove("face-right");
+  }
+  lastX = x;
+}
+
+/* =========================
+   MOUVEMENT AVEC VAGUE
 ========================= */
 let waveTime = 0;
 
@@ -153,12 +168,8 @@ function moveGhost(timestamp) {
   if (state === "moving" && pathPoints.length) {
 
     const target = pathPoints[currentPointIndex];
-
-    /* PATCH BUG #1 :
-       sécurisation du point courant */
     if (!target) {
       chooseTarget();
-      currentPointIndex = 0;
       requestAnimationFrame(moveGhost);
       return;
     }
@@ -167,17 +178,14 @@ function moveGhost(timestamp) {
     const dy = target.y - y;
     const distance = Math.hypot(dx, dy);
 
-    /* Orientation gauche / droite */
-    ghost.style.transform = dx < 0 ? "scaleX(-1)" : "scaleX(1)";
-
     if (distance > STOP_DISTANCE) {
 
       const dirX = dx / distance;
       const dirY = dy / distance;
 
-      /* VAGUE PLUS LENTE */
-      waveTime += 0.02;                // <<< ralentit la vague
-      const waveAmplitude = 0.3;       // <<< plus douce
+      /* vague douce (n’influence PAS le regard) */
+      waveTime += 0.02;
+      const waveAmplitude = 0.3;
       const perpX = -dirY;
       const perpY = dirX;
       const waveOffset = Math.sin(waveTime) * waveAmplitude;
@@ -187,7 +195,6 @@ function moveGhost(timestamp) {
 
     } else {
       currentPointIndex++;
-
       if (currentPointIndex >= pathPoints.length) {
         state = "waiting";
         waitStart = timestamp;
@@ -198,6 +205,8 @@ function moveGhost(timestamp) {
   ghostContainer.style.left = x + "px";
   ghostContainer.style.top  = y + "px";
 
+  updateGhostDirection();
+
   requestAnimationFrame(moveGhost);
 }
 
@@ -206,4 +215,5 @@ function moveGhost(timestamp) {
 ========================= */
 chooseTarget();
 requestAnimationFrame(moveGhost);
+
 
