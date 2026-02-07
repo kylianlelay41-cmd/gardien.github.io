@@ -29,3 +29,181 @@ function randomPastelColor() {
 document.querySelectorAll(".poesie-card").forEach(card => {
   card.style.background = randomPastelColor();
 });
+
+
+
+
+
+
+
+
+/* =========================
+   RÉFÉRENCES
+========================= */
+const ghostContainer = document.getElementById("ghost-container");
+const ghost = document.getElementById("ghost");
+
+/* =========================
+   ANIMATION DES IMAGES
+========================= */
+const frames = [
+  "images/f/1.png",
+  "images/f/2.png",
+  "images/f/3.png"
+];
+
+let frameIndex = 0;
+setInterval(() => {
+  frameIndex = (frameIndex + 1) % frames.length;
+  ghost.src = frames[frameIndex];
+}, 250);
+
+/* =========================
+   POSITION INITIALE
+========================= */
+let x = 300;
+let y = 600;
+
+/* =========================
+   CONSTANTES DE MOUVEMENT
+========================= */
+const SPEED = 0.6;           // vitesse constante (px/frame)
+const STOP_DISTANCE = 75;
+const WAIT_TIME = 15000;     // 15 s
+
+/* =========================
+   ÉTAT
+========================= */
+let state = "moving";        // moving | waiting
+let waitStart = 0;
+
+/* =========================
+   CHEMIN
+========================= */
+let pathPoints = [];
+let currentPointIndex = 0;
+
+/* =========================
+   GÉNÉRATION DU CHEMIN
+========================= */
+function generatePathPoints(startX, startY, endX, endY) {
+  let points = [];
+  const dx = endX - startX;
+  const dy = endY - startY;
+  const distance = Math.hypot(dx, dy);
+
+  if (distance > 1000) {
+    const count = Math.floor(Math.random() * 3) + 1; // 1 à 3 points
+
+    for (let i = 1; i <= count; i++) {
+      const ratio = i / (count + 1);
+      points.push({
+        x: startX + dx * ratio + (Math.random() - 0.5) * 200,
+        y: startY + dy * ratio + (Math.random() - 0.5) * 200
+      });
+    }
+  }
+
+  points.push({ x: endX, y: endY });
+
+  /* PATCH BUG #2 :
+     supprimer les points trop proches */
+  points = points.filter((p, i, arr) => {
+    if (i === 0) return true;
+    const prev = arr[i - 1];
+    return Math.hypot(p.x - prev.x, p.y - prev.y) > 120;
+  });
+
+  return points;
+}
+
+/* =========================
+   CHOIX DE LA DESTINATION
+========================= */
+function chooseTarget() {
+  const arts = document.querySelectorAll(".art-item img");
+  if (!arts.length) return;
+
+  const art = arts[Math.floor(Math.random() * arts.length)];
+  const rect = art.getBoundingClientRect();
+
+  const targetX = rect.left + window.scrollX + rect.width / 2;
+  const targetY = rect.top + window.scrollY + rect.height / 2;
+
+  pathPoints = generatePathPoints(x, y, targetX, targetY);
+  currentPointIndex = 0;
+}
+
+/* =========================
+   MOUVEMENT EN VAGUE LENTE
+========================= */
+let waveTime = 0;
+
+function moveGhost(timestamp) {
+
+  /* ÉTAT : ATTENTE */
+  if (state === "waiting") {
+    if (timestamp - waitStart > WAIT_TIME) {
+      chooseTarget();
+      state = "moving";
+    }
+  }
+
+  /* ÉTAT : DÉPLACEMENT */
+  if (state === "moving" && pathPoints.length) {
+
+    const target = pathPoints[currentPointIndex];
+
+    /* PATCH BUG #1 :
+       sécurisation du point courant */
+    if (!target) {
+      chooseTarget();
+      currentPointIndex = 0;
+      requestAnimationFrame(moveGhost);
+      return;
+    }
+
+    const dx = target.x - x;
+    const dy = target.y - y;
+    const distance = Math.hypot(dx, dy);
+
+    /* Orientation gauche / droite */
+    ghost.style.transform = dx < 0 ? "scaleX(-1)" : "scaleX(1)";
+
+    if (distance > STOP_DISTANCE) {
+
+      const dirX = dx / distance;
+      const dirY = dy / distance;
+
+      /* VAGUE PLUS LENTE */
+      waveTime += 0.02;                // <<< ralentit la vague
+      const waveAmplitude = 0.3;       // <<< plus douce
+      const perpX = -dirY;
+      const perpY = dirX;
+      const waveOffset = Math.sin(waveTime) * waveAmplitude;
+
+      x += dirX * SPEED + perpX * waveOffset;
+      y += dirY * SPEED + perpY * waveOffset;
+
+    } else {
+      currentPointIndex++;
+
+      if (currentPointIndex >= pathPoints.length) {
+        state = "waiting";
+        waitStart = timestamp;
+      }
+    }
+  }
+
+  ghostContainer.style.left = x + "px";
+  ghostContainer.style.top  = y + "px";
+
+  requestAnimationFrame(moveGhost);
+}
+
+/* =========================
+   LANCEMENT
+========================= */
+chooseTarget();
+requestAnimationFrame(moveGhost);
+
