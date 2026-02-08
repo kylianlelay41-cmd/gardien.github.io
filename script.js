@@ -95,7 +95,7 @@ function generatePathPoints(startX, startY, endX, endY) {
   const distance = Math.hypot(dx, dy);
 
   if (distance > 1000) {
-    const count = Math.floor(Math.random() * 3) + 1;
+    const count = Math.floor(Math.random() * 8) + 1;
 
     for (let i = 1; i <= count; i++) {
       const ratio = i / (count + 1);
