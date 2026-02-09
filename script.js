@@ -338,13 +338,3 @@ requestAnimationFrame(moveGhost);
 
 
 
-
-
-
-
-  
-
-
-
-
-
